@@ -7,7 +7,9 @@ public class PersonLambdaSort {
     persons[1] = new Person("want", 25);
     persons[2] = new Person("gcy", 28);
 
-    Arrays.sort(persons, (Person first, Person second) -> { return first.getName().length() - second.getName().length(); });
+    // Arrays.sort(persons, (Person first, Person second) -> { return first.getName().length() - second.getName().length(); });
+    // Arrays.sort(persons, Comparator.comparing(Person::getName));
+    Arrays.sort(persons, Comparator.comparing(Person::getName, (s, t) -> Integer.compare(s.length(), t.length())));
 
     for(Person p : persons) {
       System.out.println(p.getName() + "==" + p.getAge());
